@@ -14,7 +14,7 @@ Please put your name (or names if you work in a group) here:
 3. The features are newly detected every 300th frames, _i.e._ approximately once in every 10 seconds. In between the features location at the image will not change.
 
 ## Problem 2.3
-### Optical Flow Visualization
+### Optical Flow Visualization (Points 20)
 1. Visualize the Optical flow, using the displacement vectors calculated in Problem 2.2. For this use the OpenCV [drawing functions](https://docs.opencv.org/2.4/modules/core/doc/drawing_functions.html). 
 2. Now please move the detected features from Problem 2.1 by the displacement vectors alculated in Problem 2.2 and draw them with the new position in every frame from web-camera. If this is implemented correctly, the features will move with the moving objects in your video stream.
 
