@@ -1,4 +1,4 @@
-# Problem 1
+# Problem 2 and 3
 
 import cv2
 import sys
@@ -19,22 +19,26 @@ lk_params = dict( winSize  = (15,15),
                   criteria = (cv2.TERM_CRITERIA_EPS | cv2.TERM_CRITERIA_COUNT, 10, 0.03))
 
 color = np.random.randint(0,255,(100,3))
-ret, old_frame = capture.read()
-
-old_gray = cv2.cvtColor(old_frame, cv2.COLOR_BGR2GRAY)
-p0 = cv2.goodFeaturesToTrack(old_gray, mask = None, **feature_params)
-mask = np.zeros_like(old_frame)
 
 frame_counter = 0
+corners = 0
 a = time.time()
+ret, old_frame = capture.read()
+old_gray = cv2.cvtColor(old_frame, cv2.COLOR_BGR2GRAY)
+corners = cv2.goodFeaturesToTrack(old_gray,25,0.01,10)
+mask = np.zeros_like(old_frame)
 while True:
-
+    k = cv2.waitKey(1)
     ret, frame = capture.read()
+    frame_counter += 1
 
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-
-    k = cv2.waitKey(1)
-
+    if (frame_counter % 300 == 0):
+        corners = cv2.goodFeaturesToTrack(gray,25,0.01,10)
+        corners = np.int0(corners)
+    for i in corners:
+        x,y = i.ravel()
+        cv2.circle(img,(x,y),3,255,-1)
     p1, st, err = cv2.calcOpticalFlowPyrLK(old_gray, gray, p0, None, **lk_params)
 
     good_new = p1[st==1]
