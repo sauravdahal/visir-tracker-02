@@ -1,6 +1,6 @@
 # Practical Assignment 2
 Please put your name (or names if you work in a group) here:  
-**Name**: .......
+**Name**: Saurav Dahal
 ## Problem 2.1
 ### Feature Extraction (Points 30)
 1. Fork the current repository
@@ -20,3 +20,19 @@ Please put your name (or names if you work in a group) here:
 
 ### Note
 Please do not copy-paste the example code from the OpenCV documentation, but try to understand the example code and implement the solution to the problem by yourself.
+
+
+#Procedure:
+```
+sudo pip3 install numpy
+```
+```
+pip3 install opencv-python
+```
+
+```
+python3 problem1.py
+python3 problem2&3.py
+```
+
+
